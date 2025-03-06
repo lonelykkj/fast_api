@@ -38,7 +38,7 @@ run = 'fastapi dev ./app.py'
 pre_test = 'task lint'
 test = 'pytest --cov=fast_api -vv'
 lint = 'ruff check . && ruff check . --diff'
-format = 'ruff check . --fiz && ruff format .'
+format = 'ruff check . --fix && ruff format .'
 post_teste = 'coverage html'
 
 [build-system]
