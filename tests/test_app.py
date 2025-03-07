@@ -7,7 +7,7 @@ from fast_api.app import app
 
 def test_read_root_deve_retornar_ok_e_hello_world():
     client = TestClient(app)  # Arrange (ornganização)
-    response = client.get("/")  # Act (ação)
+    response = client.get("/batata")  # Act (ação)
 
     assert response.status_code == HTTPStatus.OK  # Assert
-    assert response.json() == {"message": "Hello World!"}
+    assert response.json() == {"message": "batata", "type": "frita"}
