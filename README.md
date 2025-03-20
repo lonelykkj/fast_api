@@ -152,7 +152,3 @@ Contribuições são bem-vindas! Caso queira contribuir para o projeto, basta se
 3. Commit suas alterações (`git commit -am 'Adiciona nova feature'`).
 4. Envie para o repositório remoto (`git push origin feature/nova-feature`).
 5. Abra um pull request.
-
-## Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
