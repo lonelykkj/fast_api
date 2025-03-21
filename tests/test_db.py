@@ -1,4 +1,6 @@
-from fast_api.models import User, select
+from sqlalchemy import select
+
+from fast_api.models import User
 
 
 def test_create_user(session):

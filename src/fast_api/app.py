@@ -6,7 +6,6 @@ from fast_api.schemas import Message, UserDB, UserList, UserPublic, UserSchema
 
 app = FastAPI()
 
-
 database = []
 
 
@@ -18,9 +17,7 @@ def read_root():
 @app.post("/users/", response_model=UserPublic, status_code=HTTPStatus.CREATED)
 def create_user(user: UserSchema):
     user_with_id = UserDB(id=len(database) + 1, **user.model_dump())
-
     database.append(user_with_id)
-
     return user_with_id
 
 
@@ -31,28 +28,22 @@ def read_users():
 
 @app.put("/users/{user_id}", response_model=UserPublic)
 def update_user(user_id: int, user: UserSchema):
-    if user_id < 1 or user_id > len(database) + 1:
+    if user_id < 1 or user_id > len(database):
         raise HTTPException(
             status_code=HTTPStatus.NOT_FOUND, detail="User not found"
         )
-
-    user_with_id = UserDB(user_id, **user.model_dump())
-
+    user_with_id = UserDB(id=user_id, **user.dict())
     database[user_id - 1] = user_with_id
-
     return user_with_id
 
 
-@app.delete("/users/{user_id}", response_model=UserPublic)
+@app.delete("/users/{user_id}", response_model=Message)
 def delete_user(user_id: int):
-    if user_id < 1 or user_id > len(database) + 1:
+    if user_id < 1 or user_id > len(database):
         raise HTTPException(
             status_code=HTTPStatus.NOT_FOUND, detail="User not found"
         )
-
-    user_with_id = database[user_id - 1]
-    del database[user_with_id - 1]
-
+    database.pop(user_id - 1)
     return {"message": "User deleted!"}
 
 
@@ -62,5 +53,4 @@ def read_user(user_id: int):
         raise HTTPException(
             status_code=HTTPStatus.NOT_FOUND, detail="User not found"
         )
-
     return database[user_id - 1]
