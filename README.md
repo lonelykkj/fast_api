@@ -118,29 +118,10 @@ Depois de instalado, você pode rodar o servidor com o seguinte comando:
 pipx run uvicorn app.main:app --reload
 ```
 
-## Estrutura do Projeto
-
-A estrutura do projeto é a seguinte:
-
-```
-.
-├── app/
-│   ├── main.py          # Arquivo principal da aplicação FastAPI
-│   └── ...              # Outros arquivos de implementação da API
-├── pyproject.toml       # Arquivo de configuração do Poetry
-├── poetry.lock          # Arquivo gerado pelo Poetry com as dependências exatas
-├── tests/               # Diretório contendo os testes
-│   ├── test_main.py     # Exemplo de teste
-│   └── ...              # Outros arquivos de testes
-├── taskipy.ini          # Arquivo de configuração das tarefas do Taskipy
-└── README.md            # Este arquivo
-```
-
 ### Descrição dos principais arquivos:
 
 - **app/main.py**: Arquivo principal contendo a definição da aplicação FastAPI.
 - **pyproject.toml**: Arquivo de configuração do Poetry, onde são definidas as dependências e configurações do projeto.
-- **taskipy.ini**: Arquivo de configuração do Taskipy, onde você pode definir tarefas automatizadas, como lint, testes, entre outros.
 - **tests/**: Diretório onde os testes são armazenados.
 
 ## Contribuições
