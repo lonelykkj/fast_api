@@ -4,6 +4,7 @@ from fastapi import FastAPI, HTTPException
 
 from fast_api.schemas import Message, UserDB, UserList, UserPublic, UserSchema
 
+
 app = FastAPI()
 
 database = []
